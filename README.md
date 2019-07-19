@@ -1,2 +1,2 @@
 # ChaosGame
-Chaos game picture generator, uses previously written library.
+Chaos game picture generator, using a previously written library.

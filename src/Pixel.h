@@ -10,7 +10,8 @@ public:
 	Pixel();
 	Pixel(UCH rArg, UCH gArg, UCH bArg);
 	Pixel SetColor(UCH rArg, UCH gArg, UCH bArg);
-	Pixel ChangeColor(int rArg, int gArg, int bArg);
+	Pixel ChangeColor(UCH rArg, UCH gArg, UCH bArg);
+	Pixel CycleColor(UCH rArg, UCH gArg, UCH bArg);
 	Pixel SetRed(UCH rArg);
 	Pixel SetGreen(UCH gArg);
 	Pixel SetBlue(UCH bArg);

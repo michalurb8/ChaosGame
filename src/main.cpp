@@ -1,4 +1,3 @@
-#include "Pixel.h"
 #include "Image.h"
 #include <cmath>
 #include <iostream>
@@ -10,7 +9,7 @@
 #define EXCLUDE 1
 #define HISTORY 3
 #define COEFF 1
-#define ACC 20000000
+#define ACC 10000000
 
 int main()
 {
@@ -32,26 +31,17 @@ int main()
         indices[i] = 0;
     }
     current = point[0];
-    for(unsigned int i = 0; i < ACC; ++i)
+    for(unsigned long i = 0; i < ACC; ++i)
     {
-        //indices[0] = (SHIFT+indices[0]+COEFF*rand()%(N-EXCLUDE))%N;
-        if(indices[1] == indices[2])
-        {
-            indices[0] = rand()%3 == 0 ? indices[0] : (indices[0] + 2 + rand()%2)%5;
-        }
-        else
-        {
-            indices[0] = rand()%5;
-        }
+        indices[0] = (SHIFT+indices[0]+COEFF*rand()%(N-EXCLUDE))%N;
         
         current.Move(point[indices[0]]);
 
         r = (indices[0]+1)*255.0/N;
         g = (indices[1]+1)*255.0/N;
         b = 255.0 * (current.xPos + current.yPos)/(width + height);
-        r = g = b = 0;
-        //image.SetPixel(current.xPos, current.yPos, r, g, b);
-        image.ChangePixel(current.xPos, current.yPos, 1,1,1);
+        image.SetPixel(current.xPos, current.yPos, r, g, b);
+        //image.ChangePixel(current.xPos, current.yPos, 1,1,1);
 
         for(int j = HISTORY - 1; j > 0; --j)
         {

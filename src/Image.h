@@ -21,7 +21,8 @@ public:
 	void Print() const;
 	Pixel& GetPixel(UINT xArg, UINT yArg) const;
 	void SetPixel(UINT xArg, UINT yArg, UINT rArg, UINT gArg, UINT bArg);
-	void ChangePixel(UINT xArg, UINT yArg, int rArg, int gArg, int bArg);
-	void SetAll(int rArg, int gArg, int bArg);
+	void ChangePixel(UINT xArg, UINT yArg, UINT rArg, UINT gArg, UINT bArg);
+	void CyclePixel(UINT xArg, UINT yArg, UINT rArg, UINT gArg, UINT bArg);
+	void SetAll(UINT rArg, UINT gArg, UINT bArg);
 	void Export(std::string fileName = "default") const;
 };
